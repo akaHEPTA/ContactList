@@ -1,0 +1,21 @@
++ ===  Contact  App  === +
+|  1. List all Contacts  |
+|  2. Add new Contact    |
+|  3. Remove Contact     |
+|  4. Update Contact     |
+|  5. Quit               |
++ ====================== +
+Enter your option:
+Enter name:
+Enter mobile:
+Enter work:
+Enter home:
+Enter city:
+Successfully added a new contact!
+Enter the index of the contact to remove:
+Successfully removed
+Enter the index of the contact to update:
+Successfully updated
+Bye!
+Invalid input. Enter number between %d and %d.
+You must enter this field.
