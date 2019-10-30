@@ -28,7 +28,7 @@ public class Script {
     public String getScript(){
         String result = "";
         for (int i = 0; i < 8; i++) result += SCRIPT[i] + "\n";
-        return result.trim();
+        return "\n" + result.trim();
     }
 
     public String getScript(int SCRIPT_NUM){

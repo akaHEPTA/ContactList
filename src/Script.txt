@@ -17,5 +17,5 @@ Successfully removed
 Enter the index of the contact to update:
 Successfully updated
 Bye!
-Invalid input. Enter number between %d and %d.
-You must enter this field.
+[!] Invalid input : Enter number between %d and %d
+[!] Invalid input : You must enter this field

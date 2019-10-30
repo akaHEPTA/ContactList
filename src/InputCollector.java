@@ -18,25 +18,25 @@ public class InputCollector {
                 result = myScan.nextLine();
                 break;
             } catch (Exception e) {
-                System.out.println("[!] Exception: " + e);
+                System.out.println("[!] Exception : " + e + "\n");
                 myScan = new Scanner(System.in);
             }
         }
         return result;
     }
 
-    public int getInt(String prompt) {
+    public static int getInt(String prompt) {
         int result = 0;
         while (true) {
             try {
-                System.out.println(prompt);
-                result = myScan.nextInt();
+                result = Integer.parseInt(getUserInput(prompt));
                 break;
-            } catch (InputMismatchException e) {
-                System.out.println("[!] Exception: " + e);
+            } catch (NumberFormatException e) {
+                System.out.println("[!] Input Mismatch : Please enter a number only");
                 myScan = new Scanner(System.in);
             }
         }
+
         return result;
     }
 

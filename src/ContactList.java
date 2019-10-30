@@ -57,6 +57,10 @@ public class ContactList {
         return contacts.set(index, temp);
     }
 
+    public int size() {
+        return this.contacts.size();
+    }
+
     @Override
     public String toString() {
         String result = "";

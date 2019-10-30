@@ -26,8 +26,7 @@ public class Manager {
     public void run() {
         boolean finish = true;
         while (finish) {
-            // Integer checker required !!!
-            int task = Integer.parseInt(InputCollector.getUserInput(myScript.getScript()));
+            int task = InputCollector.getInt(myScript.getScript());
 
             switch (task) {
                 case 1:
@@ -63,22 +62,35 @@ public class Manager {
     }
 
     private void removeContact() {
-        int temp = 0;
-
+        int index = 0;
         listAllContracts();
-        System.out.println(myScript.getScript(15) + ' '
-                + contacts.remove(Integer.parseInt(InputCollector.getUserInput(
-                        myScript.getScript(14)))).getName());
+        while (true) {
+            index = InputCollector.getInt(myScript.getScript(14));
+            try {
+                System.out.println(myScript.getScript(15) + ' ' + contacts.remove(index).getName());
+                break;
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println(String.format(myScript.getScript(19), 0, contacts.size() - 1));
+            }
+        }
     }
 
     private void updateContact() {
-        int temp = 0;
+        int index = 0;
+        Contact before = null;
 
         listAllContracts();
-        temp = Integer.parseInt(InputCollector.getUserInput(myScript.getScript(16)));
-        Contact before = contacts.getContact(temp);
+        while (true) {
+            index = InputCollector.getInt(myScript.getScript(16));
+            try {
+                before = contacts.getContact(index);
+                break;
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println(String.format(myScript.getScript(19), 0, contacts.size() - 1));
+            }
+        }
         Contact after = makeContact();
-        contacts.setContact(temp, after);
+        contacts.setContact(index, after);
         System.out.println(myScript.getScript(17) + ' ' + before.toString() + " to " + after.toString());
     }
 
@@ -94,14 +106,14 @@ public class Manager {
         return new Contact(name, mobile, work, home, city);
     }
 
-    private boolean isInteger(String strTemp) {
-        boolean result = true;
-        try {
-            int temp = Integer.getInteger(strTemp);
-        } catch (Exception e) {
-            result = false;
-        }
-        return result;
-    }
+//    private boolean isInteger(String strTemp) {
+//        boolean result = true;
+//        try {
+//            int temp = Integer.getInteger(strTemp);
+//        } catch (Exception e) {
+//            result = false;
+//        }
+//        return result;
+//    }
 
 }
